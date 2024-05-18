@@ -18,11 +18,43 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing></Landing>
+    element: <HomeLayout></HomeLayout>,
+
+    children: [
+      {
+        index: true,
+        element: <Landing />
+      },
+      {
+        path: "products",
+        element: <Products></Products>
+      },
+      {
+        path: "products/:id",
+        element: <SingleProduct></SingleProduct>
+      },
+      {
+        path: "cart",
+        element: <Cart></Cart>
+      },
+      { path: "about", element: <About></About> },
+      {
+        path: "checkout",
+        element: <Checkout></Checkout>
+      },
+      {
+        path: "orders",
+        element: <Orders></Orders>
+      }
+    ]
   },
   {
-    path: "/cart",
-    element: <Cart></Cart>
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Register />
   }
 ]);
 
