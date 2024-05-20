@@ -14,47 +14,63 @@ import {
   Checkout,
   Orders
 } from "./pages";
+import ErrorElement from "./components/ErrorElement";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout></HomeLayout>,
+    errorElement: <Error></Error>,
 
     children: [
       {
         index: true,
-        element: <Landing />
+        element: <Landing></Landing>,
+        errorElement: <ErrorElement></ErrorElement>,
+        loader: async () => {
+          console.log("Loading page");
+          return null;
+        }
       },
       {
         path: "products",
-        element: <Products></Products>
+        element: <Products></Products>,
+        errorElement: <ErrorElement></ErrorElement>
       },
       {
         path: "products/:id",
-        element: <SingleProduct></SingleProduct>
+        element: <SingleProduct></SingleProduct>,
+        errorElement: <ErrorElement></ErrorElement>
       },
       {
         path: "cart",
-        element: <Cart></Cart>
+        element: <Cart></Cart>,
+        errorElement: <ErrorElement></ErrorElement>
       },
-      { path: "about", element: <About></About> },
+      {
+        path: "about",
+        element: <About></About>,
+        errorElement: <ErrorElement></ErrorElement>
+      },
       {
         path: "checkout",
-        element: <Checkout></Checkout>
+        errorElement: <ErrorElement></ErrorElement>
       },
       {
         path: "orders",
-        element: <Orders></Orders>
+        errorElement: <ErrorElement></ErrorElement>
       }
     ]
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
+    errorElement: <Error></Error>
   },
   {
     path: "/register",
-    element: <Register />
+    element: <Register />,
+    errorElement: <Error></Error>
   }
 ]);
 
