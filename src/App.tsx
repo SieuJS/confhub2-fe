@@ -15,6 +15,7 @@ import {
   Orders
 } from "./pages";
 import ErrorElement from "./components/ErrorElement";
+import { loader as landingLoader } from "./pages/Landing";
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,8 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing></Landing>,
-        errorElement: <ErrorElement></ErrorElement>,
-        loader: async () => {
-          console.log("Loading page");
-          return null;
-        }
+        loader: landingLoader,
+        errorElement: <ErrorElement></ErrorElement>
       },
       {
         path: "products",
@@ -54,10 +52,12 @@ const router = createBrowserRouter([
       },
       {
         path: "checkout",
+        element: <Checkout></Checkout>,
         errorElement: <ErrorElement></ErrorElement>
       },
       {
         path: "orders",
+        element: <Orders></Orders>,
         errorElement: <ErrorElement></ErrorElement>
       }
     ]
