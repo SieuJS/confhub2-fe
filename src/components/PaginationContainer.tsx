@@ -29,11 +29,19 @@ function PaginationContainer() {
     const url = constructUrl({ pageNumber, search, pathname });
 
     return (
-      <PaginationItem key={pageNumber}>
-        <PaginationLink to={url} isActive={isActive}>
-          {pageNumber}
-        </PaginationLink>
-      </PaginationItem>
+      (pageNumber === 1 || pageNumber === pageCount || (pageNumber >= page - 2 && pageNumber <= page + 2)) ? (
+        <PaginationItem key={pageNumber}>
+          <PaginationLink to={url} isActive={isActive}>
+            {pageNumber}
+          </PaginationLink>
+        </PaginationItem>
+      ) : (
+        (pageNumber === page - 3 || pageNumber === page + 3) ? (
+          <PaginationItem key={pageNumber}>
+            <span>...</span>
+          </PaginationItem>
+        ) : null
+      )
     );
   });
   const { prevUrl, nextUrl } = constructPrevOrNextUrl({

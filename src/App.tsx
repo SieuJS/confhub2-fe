@@ -12,7 +12,8 @@ import {
   Register,
   Login,
   Checkout,
-  Orders
+  Orders,
+  ConferenceHome
 } from "./pages";
 import ErrorElement from "./components/ErrorElement";
 import { loader as landingLoader } from "./pages/Landing";
@@ -20,7 +21,7 @@ import { loader as productsLoader } from "./pages/Products";
 import { loader as singleProductLoader } from "./pages/SingleProduct";
 import { loader as checkoutLoader } from "./pages/Checkout";
 import { loader as ordersLoader } from "./pages/Orders";
-
+import {loader as conferenceLoader} from "./pages/conference/ConferenceHome"
 // action
 import { action as registerAction } from "./pages/Register";
 import { action as loginAction } from "./pages/Login";
@@ -75,6 +76,12 @@ const router = createBrowserRouter([
         element: <Orders></Orders>,
         errorElement: <ErrorElement></ErrorElement>,
         loader: ordersLoader(store)
+      },
+      {
+        path : "conferences",
+        element : <ConferenceHome></ConferenceHome>,
+        errorElement : <ErrorElement></ErrorElement>,
+        loader : conferenceLoader
       }
     ]
   },

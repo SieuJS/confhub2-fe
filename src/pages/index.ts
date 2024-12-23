@@ -4,6 +4,7 @@ export { default as SingleProduct } from './SingleProduct';
 export { default as Products } from './Products';
 export { default as Cart } from './Cart';
 export { default as Error } from './Error';
+export {  ConferenceHome } from './conference';
 
 export { default as About } from './About';
 export { default as Login } from './Login';
