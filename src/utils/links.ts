@@ -9,5 +9,6 @@ export const links: Link[] = [
   { href: "products", label: "products" },
   { href: "cart", label: "cart" },
   { href: "checkout", label: "checkout" },
-  { href: "orders", label: "orders" }
+  { href: "orders", label: "orders" },
+  {href : "conferences", label: "conferences"}
 ];
